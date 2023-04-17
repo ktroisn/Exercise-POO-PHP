@@ -24,20 +24,24 @@
         }
 
         public function displayAccounts(){
+            $result = "";
             foreach($this->accounts as $account){
-                $result = $account->getWording();
+                $result .= $account->getWording()."<br>";
             }
             return $result;
         }
-
         // getter, setter
 
         public function getInfo(){
             return "Nom : " . $this->getName() . "<br>".
                    "Prénom : " . $this->getSurname() . "<br>".
-                   "Age: " . $this->getAge() . " ans<br>".
+                   "Age : " . $this->getAge() . " ans<br>".
                    "Habite à : " . $this->getTown() . "<br>".
-                   "Listes des comptes que ce client possède chez nous : " . $this->displayAccounts() . "<br>";
+                   "Listes des comptes que ce client possède chez nous :<br> " . $this->displayAccounts() . "<br>";
+        }
+
+        public function getFullName(){
+            return $this->name . " " . $this->surname;
         }
 
         public function getName(){

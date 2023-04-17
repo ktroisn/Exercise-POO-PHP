@@ -18,6 +18,8 @@
         $compte2 = new Account("Livret A", "10000", "€", $titulaire1);
         // Zone de test
         echo $titulaire1->getInfo();
+        echo $compte1->getInfo();
+        echo $compte2->getInfo();
         
     ?>
     

@@ -3,7 +3,7 @@
     class Account {
         // Attributs
         private string $wording;
-        private float $balance;
+        private float $balance = 0;
         private string $currency;
         private Owner $owner;
 
@@ -44,7 +44,11 @@
         }
 
         //getter et setter
-
+        public function getInfo(){
+            return "Le " . $this->getWording() . " de " . $this->getOwner() . " a pour solde :<br>".
+                   "" . $this->getBalance() . "" . $this->getCurrency() . "<br><br>";
+        }
+        
         public function getWording(){
             return $this->wording;
         }
@@ -58,7 +62,7 @@
         }
 
         public function getOwner(){
-            return $this->owner;
+            return $this->owner->getFullName();
         }
     }
 ?>
