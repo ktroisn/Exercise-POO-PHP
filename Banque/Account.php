@@ -19,31 +19,26 @@
         // Methodes
 
         public function debitBalance($debit){
-            if($debit < 0){
-                return "Vous ne pouvez pas débiter une somme inférieur à zéro.<br>";
-            } else {
-                return "Votre compte avec un solde de " . $this->getBalance(). "" . $this->getCurrency() . " vient d'être débiter de $debit" . $this->getCurrency() . "<br>";
-                $refreshDebit = $this->balance - $debit;
-                $this->balance = $refreshDebit;
-                return "Le nouveau solde de votre compte (" . $this->getWording() . ") est de : $refreshDebit" . $this->getCurrency() . "<br>";
-            }
-            if($this->balance < 0){
-                return "Attention, votre compte (" . $this->getWording() . ") présente un solde débiteur de $refreshDebit" . $this->getCurrency() . "<br><br>";
+            if($debit < 0) {
+                return "Pas besoins de mettre une somme négative, utilisez une somme positive.<br>";
+            }else {
+                $this->balance -= $debit;
+                return "Le " . $this->getWording() . " de " . $this->getOwner(). " à été débité.<br>". 
+                       "Son solde est de $this->balance $this->currency. <br>";
             }
         }
-        
         public function creditBalance($credit){
-            if($credit < 0){
-                return "Vous ne pouvez pas créditer une somme inférieur à zéro.<br>";
-            } else {
-            return "Votre compte avec un solde de " . $this->getBalance(). "" . $this->getCurrency() . " vient d'être créditer de $credit" . $this->getCurrency() . "<br>";
-            $refreshCredit = $this->balance + $credit;
-            $this->balance = $refreshCredit;
-            return "Le nouveau solde de votre compte (" . $this->getWording() . ") est de : $refreshCredit" . $this->getCurrency() . "<br><br>";
+            if($credit < 0) {
+                return "Vous ne pouvez pas créditer un compte d'un montant inférieur à 0.";
+            }else {
+                $this->balance += $credit;
+                return "Le " . $this->getWording() . " de " . $this->getOwner(). " à été crédité.<br>". 
+                       "Son solde est de $this->balance $this->currency. <br>";
             }
         }
 
-        //getter et setter
+        // getter
+
         public function getInfo(){
             return "Le " . $this->getWording() . " de " . $this->getOwner() . " a pour solde :<br>".
                    "" . $this->getBalance() . "" . $this->getCurrency() . "<br><br>";
@@ -64,5 +59,8 @@
         public function getOwner(){
             return $this->owner->getFullName();
         }
+
+        // setter
+        
     }
 ?>

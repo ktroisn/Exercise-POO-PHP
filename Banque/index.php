@@ -20,6 +20,10 @@
         echo $titulaire1->getInfo();
         echo $compte1->getInfo();
         echo $compte2->getInfo();
+        echo $compte1->creditBalance(1000);
+        echo $compte1->getInfo();
+        echo $compte1->debitBalance(100);
+        echo $compte1->getInfo();
         
     ?>
     

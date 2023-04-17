@@ -30,7 +30,7 @@
             }
             return $result;
         }
-        // getter, setter
+        // getter
 
         public function getInfo(){
             return "Nom : " . $this->getName() . "<br>".
@@ -66,5 +66,9 @@
         public function getAccounts(){
             return $this->accounts;
         }
+
+        // setter 
+
+        
     }
 ?>
