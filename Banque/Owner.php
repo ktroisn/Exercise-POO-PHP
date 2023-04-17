@@ -22,14 +22,14 @@
         public function addAccount(Account $account){ // Methodes pour ajouter un compte aux tableaux des comptes
             $this->accounts[] = $account; 
         }
-        
+
         // getter, setter
         public function getName(){
-            return $this->name;
+            return "Nom : " . $this->name . " ";
         }
 
         public function getSurname(){
-            return $this->surname;
+            return "Prénom : " . $this->surname . " ";
         }
 
         public function getAge(){
@@ -43,7 +43,7 @@
             return $this->town;
         }
 
-        public function getAccounts(){
+        public function getAccounts(): array {
             return $this->accounts;
         }
     }
