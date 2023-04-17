@@ -22,6 +22,13 @@
         public function addAccount(Account $account){ // Methodes pour ajouter un compte aux tableaux des comptes
             $this->accounts[] = $account; 
         }
+        
+        public function getAge(){
+            $now = new DateTime();
+            $birthDate = $this->birth;
+            $diff = date_diff($birthDate, $now);
+            return $diff->y;
+        }
 
         public function displayAccounts(){
             $result = "";
@@ -30,7 +37,6 @@
             }
             return $result;
         }
-        // getter
 
         public function getInfo(){
             return "Nom : " . $this->getName() . "<br>".
@@ -44,6 +50,8 @@
             return $this->name . " " . $this->surname;
         }
 
+        // getter
+
         public function getName(){
             return $this->name;
         }
@@ -52,11 +60,8 @@
             return $this->surname;
         }
 
-        public function getAge(){
-            $now = new DateTime();
-            $birthDate = $this->birth;
-            $diff = date_diff($birthDate, $now);
-            return $diff->y;
+        public function getDateOfBirth(){
+            return $this->birth;
         }
 
         public function getTown(){
@@ -69,6 +74,24 @@
 
         // setter 
 
-        
+        public function setName(string $name){
+            return $this->name = $name;
+        }
+
+        public function setSurname(string $surname){
+            return $this->surname = $surname;
+        }
+
+        public function setDateOfBirth(DateTime $birth){
+            return $this->birth = $birth;
+        }
+
+        public function setTown(string $town){
+            return $this->town = $town;
+        }
+
+        public function setAccounts(Account $accounts){
+            return $this->accounts = $account;
+        }
     }
 ?>
