@@ -17,7 +17,7 @@
         $compte1 = new Account("Compte courant", "1500", "€", $titulaire1);
         $compte2 = new Account("Livret A", "10000", "€", $titulaire1);
         // Zone de test
-        echo $titulaire1->getName();
+        echo $titulaire1->getInfo();
         
     ?>
     

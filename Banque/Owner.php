@@ -9,7 +9,7 @@
         private array $accounts;
 
         // Constructeur
-        public function __construct($name, $surname, $birth, $town){
+        public function __construct(string $name, string $surname, string $birth, string $town){
             $this->name = $name;
             $this->surname = $surname;
             $this->birth = new DateTime ($birth);
@@ -23,13 +23,29 @@
             $this->accounts[] = $account; 
         }
 
+        public function displayAccounts(){
+            foreach($this->accounts as $account){
+                $result = $account->getWording();
+            }
+            return $result;
+        }
+
         // getter, setter
+
+        public function getInfo(){
+            return "Nom : " . $this->getName() . "<br>".
+                   "Prénom : " . $this->getSurname() . "<br>".
+                   "Age: " . $this->getAge() . " ans<br>".
+                   "Habite à : " . $this->getTown() . "<br>".
+                   "Listes des comptes que ce client possède chez nous : " . $this->displayAccounts() . "<br>";
+        }
+
         public function getName(){
-            return "Nom : " . $this->name . " ";
+            return $this->name;
         }
 
         public function getSurname(){
-            return "Prénom : " . $this->surname . " ";
+            return $this->surname;
         }
 
         public function getAge(){
@@ -43,7 +59,7 @@
             return $this->town;
         }
 
-        public function getAccounts(): array {
+        public function getAccounts(){
             return $this->accounts;
         }
     }
