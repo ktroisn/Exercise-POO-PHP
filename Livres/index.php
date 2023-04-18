@@ -10,8 +10,9 @@
     
     <?php
     // Importer les class
-    require 'Autor.php';
-    require 'Book.php';
+    spl_autoload_register(function ($class_name) {
+        include $class_name . '.php';
+    });
     //Initialisation des objets
 
     $autor1 = new Autor("BROUILLON", "Quentin");

@@ -10,8 +10,9 @@
 
     <?php
         // Importation des classes 
-        include 'Owner.php';
-        include 'Account.php';
+        spl_autoload_register(function ($class_name) {
+            include $class_name . '.php';
+        });
         // Instanciation 
         $titulaire1 = new Owner("Frere", "Jacques", "1998-10-02", "Majorcque");
         $compte1_1 = new Account("Compte courant", "1500.35", "€", $titulaire1);
