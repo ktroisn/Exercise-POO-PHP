@@ -23,7 +23,7 @@
                 return "Pas besoins de mettre une somme négative, entrez une somme positive.<br>";
             }else {
                 $this->balance -= $debit;
-                return "Le " . $this->getWording() . " de " . $this->getOwnerFullName(). " à été débité.<br>". 
+                return "Le " . $this->getWording() . " de " . $this->owner. " à été débité.<br>". 
                        "Son solde est de $this->balance $this->currency. <br>";
             }
         }
