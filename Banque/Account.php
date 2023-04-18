@@ -32,7 +32,7 @@
                 return "Vous ne pouvez pas créditer un compte d'un montant inférieur à 0.<br>";
             }else {
                 $this->balance += $credit;
-                return "Le " . $this->getWording() . " de " . $this->getOwnerFullName(). " à été crédité.<br>". 
+                return "Le " . $this->getWording() . " de " . $this->owner .  " à été crédité.<br>". 
                        "Son solde est de $this->balance $this->currency. <br>";
             }
         }

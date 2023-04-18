@@ -50,6 +50,9 @@
             return $this->name . " " . $this->surname;
         }
 
+        public function __toString(){
+            return $this->name . " " . $this->surname;
+        }
         // getter
 
         public function getName(){

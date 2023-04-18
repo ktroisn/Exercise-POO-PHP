@@ -15,15 +15,18 @@
     //Initialisation des objets
 
     $autor1 = new Autor("BROUILLON", "Quentin");
-    $book1 = new Book("Test", "150", "1965-02-02", "10", "€", $autor1);
-    $book2 = new Book("Test2", "250", "1985-02-02", "20", "€", $autor1);
+    $book1_1 = new Book("Test", "150", "1965-02-02", "10", "€", $autor1);
+    $book2_1 = new Book("Test2", "250", "1985-02-02", "20", "€", $autor1);
+
+    $autor2 = new Autor("ELAN", "Formation");
+    $book1_2 = new Book("Le dev pour les nuls", "1500", "2010-02-02", "100", "€", $autor2);
+    $book2_2 = new Book("La page blanche", "500", "2023-02-02", "100", "€", $autor2);
     //Zone de test
     echo $autor1;
-    echo $autor1->addBook($book1);
-    echo $autor1->addBook($book2);
-    echo $book1;
-    echo $book2;
+    echo $book1_1;
+    echo $book2_1;
     echo $autor1->displayBooks();
+    echo $autor2->displayBooks();
     ?>
 
 </body>

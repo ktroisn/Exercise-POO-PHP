@@ -17,6 +17,7 @@
             $this->price = $price;
             $this->currency = $currency;
             $this->autor = $autor;
+            $this->autor -> addBook($this);
         }
 
         // method
