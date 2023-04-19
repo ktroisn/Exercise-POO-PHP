@@ -26,7 +26,7 @@
         $result = "<h2>Tout les films de $this </h2>";
 
             foreach($this->films as $film){
-                $result .= $film."<br>";
+                $result .= $film . "<br>";
             }
             return $result;
         

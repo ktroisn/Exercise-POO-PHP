@@ -28,7 +28,9 @@
             return $this->getTitre() . " " . $this->getDateDeSortie() . " " . $this->getDureeDuFilm() . " " . $this->getSynopsis() . " " . $this->getGenre() . "  " . $this->getRealisateur() . "";
         }
 
-        // getter 
+        public function listFilms(){
+            return $this->getTitre() . " " . $this->getDateDeSortie() . " " . $this->getDureeDuFilm() . " " . $this->getSynopsis() . " " . $this->getGenre() . "";
+        }
 
         public function getTitre(){
             return $this->titre;

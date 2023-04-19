@@ -32,10 +32,14 @@
             $result = "<h2>Tout les films réaliser par $this </h2>";
 
                 foreach($this->films as $film){
-                    $result .= $film."<br>";
+                    $result .= $film->listFilms()."<br>";
                 }
                 return $result;
             
+        }
+
+        public function getInfos(){
+            return $this->getNom() . " " . $this->getPrenom() . " " . $this->getSexe() . " " . $this->getDateDeNaissance() . "<br>";
         }
 
         // getter
@@ -60,9 +64,6 @@
             return $this->film;
         }
 
-        public function getInfos(){
-            return $this->getNom() . " " . $this->getPrenom() . " " . $this->getSexe() . " " . $this->getDateDeNaissance() . "<br>";
-        }
         // setter
 
         public function setNom(string $nom){
