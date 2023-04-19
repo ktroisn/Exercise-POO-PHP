@@ -6,6 +6,7 @@
         private string $prenom;
         private string $sexe;
         private DateTime $dateDeNaissance;
+        private array $films;
 
         //Constructeur 
 
@@ -14,9 +15,28 @@
             $this->prenom = $prenom;
             $this->sexe = $sexe;
             $this->dateDeNaissance = new DateTime($dateDeNaissance);
+            $this->films = [];
         }
 
-        // method 
+        // method
+
+        public function __toString(){
+            return $this->getNom() . " " . $this->getPrenom() . "<br>";
+        }
+
+        public function addFilm(Film $film){
+            $this->films[] = $film;
+        }
+
+        public function displayFilm(){
+            $result = "<h2>Tout les films réaliser par $this </h2>";
+
+                foreach($this->films as $film){
+                    $result .= $film."<br>";
+                }
+                return $result;
+            
+        }
 
         // getter
 
@@ -33,9 +53,16 @@
         }
 
         public function getDateDeNaissance(){
-            return $this->dateDeNaissance;
+            return $this->dateDeNaissance->format("d-m-Y");
         }
 
+        public function getFilms(){
+            return $this->film;
+        }
+
+        public function getInfos(){
+            return $this->getNom() . " " . $this->getPrenom() . " " . $this->getSexe() . " " . $this->getDateDeNaissance() . "<br>";
+        }
         // setter
 
         public function setNom(string $nom){
@@ -54,5 +81,7 @@
             $this->dateDeNaissance = $dateDeNaissance;
         }
 
-
+        public function setFilm(Film $film){
+            $this->film = $film;
+        }
     }
