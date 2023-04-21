@@ -8,6 +8,7 @@
         private string $synopsis; // synopsis du film 
         private array $genres; // tableau du(des) genre(s) que ce film a
         private Producer $producer; // objet realisateur du film
+        private array $castings;
         // constructeur
 
         public function __construct(string $title, string $releaseDate, int $duration, string $synopsis, array $genres, Producer $producer){
@@ -23,9 +24,24 @@
             }
             $this->producer = $producer;
             $this->producer -> addMovie($this); /* ?????????????????? */
+            $this->castings = [];
         }
 
         // method 
+
+        public function addCasting(Casting $casting){
+            $this->castings[] = $casting;
+          }
+
+          public function getAllActors(){
+            $result = "<h2>Tout les acteurs</h2>";
+
+                foreach($this->castings as $actor){
+                    $result .= $actor->getActor() ."<br>";
+                }
+                return $result;
+            
+        }
 
         public function __toString(){
             $genresString = "";

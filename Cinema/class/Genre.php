@@ -22,7 +22,7 @@
         $this->movies[] = $movie;
       }
 
-      public function getFilmsInfos(){
+      public function getFilmsByGenre(){
           $result = "<h2>Tout les films de $this </h2>";
 
               foreach($this->movies as $movie){
