@@ -23,7 +23,7 @@
                     $genre -> addMovie($this); // Lors de l'instantiation de l'objet a chaque $genre trouvé lui ajouter un ou plusieurs genre dans son tabeleau des genre
             }
             $this->producer = $producer;
-            $this->producer -> addMovie($this); /* ?????????????????? */
+            $this->producer -> addMovie($this); // On rajoute au tableau movies de Producer le film creer 
             $this->castings = [];
         }
 
@@ -33,8 +33,8 @@
             $this->castings[] = $casting;
           }
 
-          public function getAllActors(){
-            $result = "<h2>Tout les acteurs</h2>";
+        public function getAllActors(){
+            $result = "<h2>Tout les acteurs de " . $this->getTitle() . "</h2>";
 
                 foreach($this->castings as $actor){
                     $result .= $actor->getActor() ."<br>";
@@ -43,19 +43,7 @@
             
         }
 
-        public function __toString(){
-            $genresString = "";
-            foreach($this->genres as $genre){
-                $genresString .= $genre . " ";
-            }
-            return "Titre : " . $this->getTitle() . ".<br>".
-                   "Date de sortie : " . $this->getReleaseDate() . ".<br>".
-                   "Durée en minutes : " . $this->getDuration() . " minutes.<br>".
-                   "Synopsis : " . $this->getSynopsis() . ".<br>".
-                   "Genre(s) : " . $genresString . ".<br>".
-                   "Réalisé par : " . $this->getProducer() . "<br>";
-        }
-
+        
         public function listFilms(){
             $genresString = "";
             foreach($this->genres as $genre){
@@ -67,7 +55,8 @@
                    "Synopsis : " . $this->getSynopsis() . ".<br>".
                    "Genre(s) : " . $genresString . ".<br>";
         }
-
+        
+        // getter
         public function getTitle(){
             return $this->title;
         }
@@ -83,38 +72,53 @@
         public function getSynopsis(){
             return $this->synopsis;
         }
-
+        
         public function getGenres(){
             return $this->genres;
         }
-
+        
         public function getProducer(){
             return $this->producer;
         }
-
+        
         // setter 
-
+        
         public function setTitle(string $title){
             $this->title = $title;
         }
-
+        
         public function setReleaseDate(DateTime $releaseDate){
             $this->releaseDate = $releaseDate;
         }
-
+        
         public function setDuration(int $duration){
             $this->duration = $duration;
         }
-
+        
         public function setSynopsis(string $synopsis){
             $this->synopsis = $synopsis;
         }
-
+        
         public function setGenres(array $genres){
             $this->genres = $genres;
         }
-
+        
         public function setProducer(Producer $producer){
             $this->producer = $producer;
+        }
+
+        // toString
+
+        public function __toString(){
+            $genresString = "";
+            foreach($this->genres as $genre){
+                $genresString .= $genre . " ";
+            }
+            return "Titre : " . $this->getTitle() . ".<br>".
+                   "Date de sortie : " . $this->getReleaseDate() . ".<br>".
+                   "Durée en minutes : " . $this->getDuration() . " minutes.<br>".
+                   "Synopsis : " . $this->getSynopsis() . ".<br>".
+                   "Genre(s) : " . $genresString . ".<br>".
+                   "Réalisé par : " . $this->getProducer() . "<br>";
         }
     }

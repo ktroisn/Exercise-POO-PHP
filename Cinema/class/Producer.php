@@ -10,15 +10,15 @@
             }
 
         // method 
-        public function addMovie(Movie $movie){
+        public function addMovie(Movie $movie){ // Utilisé dans movie pour ajouter les films au tableau movies de cette class
             $this->movies[] = $movie;
         }
 
-        public function getAllTheMoviesMade(){
+        public function getAllTheMoviesMade(){ // liste des films produit par un realisateur
             $result = "<h2>Tout les films réaliser par $this </h2>";
 
-                foreach($this->movies as $movie){
-                    $result .= $movie->listFilms()."<br>";
+                foreach($this->movies as $movie){ // parcourir le tableau movies et resortir chaque valeur
+                    $result .= $movie->listFilms()."<br>"; // obtenir la liste des films sans la ligne "Realisé par" 
                 }
                 return $result;
             

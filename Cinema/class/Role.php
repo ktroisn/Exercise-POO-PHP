@@ -2,16 +2,11 @@
 
     class Role {
         // Attributs
-        private array $actors;
         private string $rolePlayed;
         private array $castings;
 
         // Constructeur
-        public function __construct(array $actors, string $rolePlayed){
-            $this->actors = $actors;
-            foreach($this->actors as $actor){  // Parcourir le tableau $actors en lui indiquant qu'il a des valeurs qui sont $actor
-                $actor -> addRole($this); // Lors de l'instantiation de l'objet a chaque $actor trouvé lui ajouter un ou plusieurs genre dans son tabeleau des acteur
-            }
+        public function __construct(string $rolePlayed){
             $this->rolePlayed = $rolePlayed;
             $this->castings = [];
         }
@@ -22,24 +17,25 @@
             $this->castings[] = $casting;
           }
 
+        public function getAllActorPlayedRole(){
+            $result = "<h2>Tout les acteurs aillant incarner " . $this->getRolePlayed() . " </h2>";
+
+                foreach($this->castings as $actor){
+                    $result .= $actor->getActor() ."<br>";
+                }
+                return $result;
+            
+        }
+
         public function __toString(){
             return
                    "Role joué : " . $this->getRolePlayed() . "<br>";
         }
 
-        public function getAllActorPlayedRole(){
-            $result = "<h2>Tout les acteurs ayant incarné " . $this->getRolePlayed() . "</h2>";
-
-                foreach($this->actors as $actor){
-                    $result .= $actor ."<br>";
-                }
-                return $result;
-        }
-
         // getter 
 
-        public function getActors(){
-            return $this->actors;
+        public function getcastings(){
+            return $this->castings;
         }
 
         public function getRolePlayed(){
@@ -48,8 +44,8 @@
 
         // setter 
 
-        public function setActors(array $actors){
-            $this->actors = $actors;
+        public function setCastings(array $castings){
+            $this->castings = $castings;
         }
 
         public function setRolePLayed(string $rolePlayed){
