@@ -22,7 +22,7 @@
        
        public function __toString(){
             return "Film : <br> " . $this->getMovie() . "<br>".
-                   "Acteur dans ce film : " . $this->getActor()->getAllActors() . "<br>";
+                   "Acteurs dans ce film : " . $this->getActor()->getAllActors() . "<br>";
        }
        
 

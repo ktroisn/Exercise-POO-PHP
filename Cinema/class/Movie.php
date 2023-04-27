@@ -37,7 +37,7 @@
             $result = "<h2>Tout les acteurs de " . $this->getTitle() . "</h2>";
 
                 foreach($this->castings as $actor){
-                    $result .= $actor->getActor() ."<br>";
+                    $result .= $actor->getActor() . " " . $actor->getRole() . "<br>";
                 }
                 return $result;
             
