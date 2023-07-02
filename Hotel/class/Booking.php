@@ -18,12 +18,15 @@
 
             $this->person -> addBooking($this);
             $this->room -> addBooking($this);
+            $this->room -> addBookingDate($this->entered, $this->exit);
             $this->hotel = $hotel;
             $this->hotel -> addBookingToHotel($this);
         }
 
-        // methods 
+        // methods
         
+        
+
         public function displayThisBooking(){
             return "Hotel : <b>" . $this->getHotel()->getName() . " /</b> " . $this->getRoom()->displayRoomForBooking() . " du " . $this->getDateOfEntered() . " au " . $this->getDateOfExit() . "<br>Prix de cette réservation : " . $this->countPrice() . "€<br>";
         }

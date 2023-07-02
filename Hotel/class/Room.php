@@ -9,6 +9,7 @@
         private int $roomNumber;
         private array $bookings;
         private Hotel $hotel;
+        private array $dateBooked;
 
         //constructeur 
 
@@ -22,9 +23,24 @@
 
             $this->hotel -> addRoom($this);
             $this->bookings = [];
+            $this->dateBooked = [];
         }
 
         // methods 
+        public function addBookingDate(DateTime $dateBooked, DateTime $dateBooked2){
+            
+            foreach($this->bookings as $booking) :
+            if($dateBooked <= $booking->getDateOfEntered()  && $dateBooked2 >= $booking->getDateOfExit()){
+                $this->dateBooked [] = $dateBooked;
+                $this->dateBooked [] = $dateBooked2;
+            } 
+            else {
+                echo "test";
+            }
+            endforeach;
+        }
+
+        
 
         public function isReserved(){
             if($this->booked == false){
@@ -40,12 +56,6 @@
 
         public function addBooking(Booking $booking){
             $this->bookings [] = $booking;
-
-            $date1 = $booking->getDateOfEntered();
-            $date2 = $booking->getDateOfExit();
-            if($date1 >= $booking->getDateOfEntered() && $date2 <= $booking->getDateOfExit()){
-                $this->booked = true;
-            }
         }
 
         public function askIfWifiIsEnabled(){
@@ -94,6 +104,10 @@
             return $this->hotel;
         }
 
+        public function getDateBooked(){
+            return $this->dateBooked;
+        }
+
         // setter
 
         public function setPrice(float $price){
@@ -119,8 +133,13 @@
         public function setBookings(array $bookings){
             $this->bookings = $bookings;
         }
+
         public function setHotel(Hotel $hotel){
             $this->hotel = $hotel;
+        }
+
+        public function setDateBooked(array $dateBooked){
+            $this->dateBooked = $dateBooked;
         }
 
         // TO STRING
